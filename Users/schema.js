@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema({
         firstName: String,
         email: String,
         lastName: String,
-        dob: Date,
+        dob: String,
         role: {
             type: String,
             enum: ["STUDENT", "FACULTY", "ADMIN", "USER"],
@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
         },
         loginId: String,
         section: String,
-        lastActivity: Date,
+        lastActivity: String,
         totalActivity: String,
     },
     { collection: "users" }
