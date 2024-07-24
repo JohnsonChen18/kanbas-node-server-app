@@ -15,6 +15,10 @@ const userSchema = new mongoose.Schema({
         section: String,
         lastActivity: String,
         totalActivity: String,
+        enrolledCourses: {
+            type: [String],
+            default: [],
+        }
     },
     { collection: "users" }
 );
