@@ -1,22 +1,17 @@
 import mongoose from "mongoose";
 
 const quizSchema = new mongoose.Schema({
-        quizType: {
-            type: String,
-            enum: ["GRADED_QUIZ", "PRACTICE_QUIZ", "GRADED_SURVEY", "UNGRADED_SURVEY"],
-            default: "GRADED_QUIZ",
-        },
-        points: Number,
-        assignmentGroup: {
-            type: String,
-            enum: ["QUIZZES", "EXAMS", "ASSIGNMENTS", "PROJECTS"],
-            default: "QUIZZES",
-        },
+        course: String,
+        name: String,
+        quizType: {type: String, enum: ["GRADED_QUIZ", "PRACTICE_QUIZ", "GRADED_SURVEY", "UNGRADED_SURVEY"], default: "GRADED_QUIZ",},
+        points: {type: Number, default: 0,},
+        assignmentGroup: {type: String, enum: ["QUIZZES", "EXAMS", "ASSIGNMENTS", "PROJECTS"], default: "QUIZZES",},
         shuffleAnswers: {type: Boolean, default: true,},
         timeLimit: {type: Number, default: 20,},
         multipleAttempts: {type: Boolean, default: false,},
-        maxAttempts: {type: Number,},
-        showCorrectAnswers: {type: Boolean,},
+        maxAttempts: {type: Number, default:1},
+        showCorrectAnswers: {type: Boolean, default:false},
+        whenToShowAnswers: {type: String, enum: ["AFTER_EACH", "AFTER_ALL"], default: "AFTER_ALL",},
         accessCode: {type: String, default: "",},
         oneQuestionLimit: {type: Boolean, default: true,},
         webCam: {type: Boolean, default: false,},
@@ -24,6 +19,9 @@ const quizSchema = new mongoose.Schema({
         dueDate: {type: Date,},
         availableDate: {type: Date,},
         untilDate: {type: Date,},
+        published:{type: Boolean,default:false},
+        questionCount:{type:Number, default:0},
+        description:{type:String,default:""},
     },
     {collection: "quizzes"}
 );
