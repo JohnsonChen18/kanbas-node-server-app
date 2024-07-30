@@ -9,7 +9,7 @@ export const updateQuestions = async (questions) => {
     console.log(questions);
     const promises = questions.map(async (question) => {
         try {
-            if (question._id !== undefined) {
+            if (question._id) {
                 await model.updateOne({ _id: question._id }, { $set: question });
             } else {
                 await model.create(question);

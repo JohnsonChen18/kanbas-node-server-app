@@ -8,9 +8,12 @@ const questionSchema = new mongoose.Schema({
         questionType: {type: String, enum: ["TRUE_FALSE", "MULTIPLE_CHOICE", "FILL_IN_BLANK"], default: "MULTIPLE_CHOICE",},
         text: {type: String, required: true},
         options: [{
-            text: { type: String, required: true },
-            is_correct: { type: Boolean, required: true }
+            number: {type: Number},
+            text: { type: String},
+            deleted: { type: Boolean},
         }],
+        nextOptionNumber: {type: Number, default: 1},
+        correctOptionNumber: {type: Number, default: 1},
         is_correct: {type: Boolean},
         correct_answers: [String],
         deleted: {type: Boolean, default:false},
