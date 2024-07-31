@@ -6,7 +6,6 @@ export const createQuestion = (question) => {
 };
 export const findQuestionsByQuiz =  (quizId) => model.find({quiz: quizId});
 export const updateQuestions = async (questions) => {
-    console.log(questions);
     const promises = questions.map(async (question) => {
         try {
             if (question._id) {
