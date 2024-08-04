@@ -11,6 +11,7 @@ import AssignmentRoutes from "./Assignments/routes.js";
 import session from "express-session";
 import QuizRoutes from "./Quizzes/routes.js";
 import QuestionRoutes from "./Questions/routes.js";
+import QuizRecordsRoutes from "./QuizRecords/routes.js";
 const app = express()
 const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kanbas"
 mongoose.connect(CONNECTION_STRING);
@@ -41,6 +42,7 @@ ModuleRoutes(app);
 AssignmentRoutes(app);
 QuizRoutes(app);
 QuestionRoutes(app);
+QuizRecordsRoutes(app);
 Hello(app);
 Lab5(app);
 app.listen(process.env.PORT || 4000)
